@@ -95,35 +95,35 @@ function renderButtons() {
   let sauce = document.querySelector('.btn.btn-sauce')
   let crust= document.querySelector('.btn.btn-crust')
  
-  if (state.pepperoni){
+  if (!state.pepperoni){
     pepperoni.setAttribute("class","btn btn-pepperoni")
   }
   else{
     pepperoni.setAttribute("class","btn btn-pepperoni active")
   }
 
-  if (state.mushrooms){
+  if (!state.mushrooms){
     mushrooms.setAttribute("class","btn btn-mushrooms")
   }
   else{
     mushrooms.setAttribute("class","btn btn-mushrooms active")
   }
 
-  if (state.greenPeppers){
+  if (!state.greenPeppers){
     greenPeppers.setAttribute("class","btn btn-green-peppers")
   }
   else{
     greenPeppers.setAttribute("class","btn btn-green-peppers active")
   }
 
-  if (state.whiteSauce){
+  if (!state.whiteSauce){
     sauce.setAttribute("class","btn btn-sauce")
   }
   else{
     sauce.setAttribute("class","btn btn-sauce active")
   }
 
-  if (state.glutenFreeCrust){
+  if (!state.glutenFreeCrust){
     crust.setAttribute("class","btn btn-crust")
   }
   else{
@@ -137,8 +137,54 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
-  let list = Array.from(document.querySelectorAll(".panel .price ul > li"))
-  console.log(list)
+  let listArray = Array.from(document.querySelectorAll("aside > ul > li"))
+  let total=10
+  let totalPrice= document.querySelector("aside strong")
+  if(!state.pepperoni){
+    listArray[0].style.display = "none"
+  }
+  if (state.pepperoni){
+    listArray[0].style.display = "flex"
+    total += ingredients.pepperoni.price
+  }
+
+  if(!state.mushrooms){
+    listArray[1].style.display = "none"
+  }
+  if (state.mushrooms){
+    listArray[1].style.display = "flex"
+    total += ingredients.mushrooms.price
+  }
+
+  if(!state.greenPeppers){
+    listArray[2].style.display = "none"
+  }
+  if (state.greenPeppers){
+    listArray[2].style.display = "flex"
+    total += ingredients.greenPeppers.price
+  }
+
+  if(!state.whiteSauce){
+    listArray[3].style.display = "none"
+  }
+  if (state.whiteSauce){
+    listArray[3].style.display = "flex"
+    total += ingredients.whiteSauce.price
+  }
+
+  if(!state.glutenFreeCrust){
+    listArray[4].style.display = "none"
+  }
+  if (state.glutenFreeCrust){
+    listArray[4].style.display = "flex"
+    total += ingredients.glutenFreeCrust.price
+  }
+
+  totalPrice.innerHTML= `$${total}`
+
+
+  
+
   
 }
 
