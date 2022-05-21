@@ -15,7 +15,7 @@ const getPageState = async () => await page.evaluate(() => state);
 describe('Ironhack Pizza Builder', () => {
   beforeAll(async () => {
     page.on('console', (msg) => console.log(msg.text()));
-    await page.goto('http://localhost:4444');
+    await page.goto('http://localhost:5500');                   // [To be checked with Antoine] -> Previously: http://localhost:4444
   });
 
   beforeEach(async () => {
