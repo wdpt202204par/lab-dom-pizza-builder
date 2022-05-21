@@ -357,7 +357,6 @@ p.description {
   color: #555;
   margin-bottom: 15px;
 }
-
 .price h2:after {
   content: ':';
 }
